@@ -1,4 +1,4 @@
-import Ex1.Produto;
+package Ex1;
 
 import java.util.Scanner;
 
