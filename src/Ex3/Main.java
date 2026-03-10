@@ -28,17 +28,20 @@ public class Main {
             System.out.println("3- <Passar catraca>");
             System.out.println("4- Finalizar");
             System.out.println("--------------------");
+
             opcao = inp.nextInt();
+
+            switch (opcao) {
+                case 1 -> carregarBilhete();
+                case 2 -> consultarSaldo();
+                case 3 -> passarCatraca();
+                case 4 -> System.out.println("Serviço finalizado.");
+                default -> System.out.println("[?] opcão invalida, tente novamente");
+            }
 
         } while (opcao != 4);
 
-        switch (opcao) {
-            case 1 -> carregarBilhete();
-            case 2 -> consultarSaldo();
-            case 3 -> passarCatraca();
-            case 4 -> System.out.println("Serviço finalizado.");
-            default -> System.out.println("[?] opcão invalida, tente novamente");
-        }
+
     }
 
     private static void passarCatraca() {
@@ -49,16 +52,18 @@ public class Main {
     }
 
     private static void consultarSaldo() {
-        System.out.println("----SALDO----");
+        System.out.println("-----SALDO-----");
         System.out.println("Saldo atual: R$" + bilhete.saldo);
-        System.out.println("------------");
+        System.out.println("---------------");
 
     }
 
     private static void carregarBilhete() {
         double valor;
-        System.out.println("----CARREGAR----");
+        System.out.println("------------------------CARREGAR------------------------");
         System.out.print("[R$ " + bilhete.saldo + "] | Valor para carregar bilhete: ");
+        System.out.println("--------------------------------------------------------");
+
         valor = inp.nextDouble();
         bilhete.carregarBilhete(valor);
     }
