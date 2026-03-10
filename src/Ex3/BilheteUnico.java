@@ -21,19 +21,20 @@ public class BilheteUnico {
         this.numeroBilhete = random.nextInt(1000, 9999);
     }
 
-    public double carregarBilhete() {
+    public void carregarBilhete(double valorCarregar) {
+        this.saldo += valorCarregar;
     }
 
-    public void passagem() {
+    public boolean passagem() {
         double valor = TARIFABASE;
         if (tipoTarifa.equalsIgnoreCase("estudante") || tipoTarifa.equalsIgnoreCase("professor")) {
             valor = valor / 2;
         }
-
-        if (saldo< valor) {
-            return;
+        if (saldo < valor) {
+            return false;
         }
-        saldo-=valor;
+        saldo -= valor;
+        return true;
     }
 
 }
